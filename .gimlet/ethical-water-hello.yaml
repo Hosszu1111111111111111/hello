@@ -1,0 +1,23 @@
+app: hello
+env: ethical-water
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: onechart
+  version: 0.70.0
+values:
+  gitRepository: Hosszu1111111111111111/hello
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: ""
+    registry: public
+    strategy: static
+    tag: "1.25"
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: hosszu1111111111111111-hello-qyojmbhe.gimlet.app
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
